@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parking Tag Picker WRT", "Parking Tag Picker WRT\Parking Tag Picker WRT.csproj", "{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Debug|Any CPU.ActiveCfg = Debug|ARM
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Debug|Any CPU.Build.0 = Debug|ARM
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Debug|Any CPU.Deploy.0 = Debug|ARM
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Debug|ARM.ActiveCfg = Debug|ARM
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Debug|ARM.Build.0 = Debug|ARM
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Debug|ARM.Deploy.0 = Debug|ARM
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Debug|x86.ActiveCfg = Debug|x86
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Debug|x86.Build.0 = Debug|x86
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Debug|x86.Deploy.0 = Debug|x86
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|ARM.ActiveCfg = Release|ARM
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|ARM.Build.0 = Release|ARM
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|ARM.Deploy.0 = Release|ARM
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|x86.ActiveCfg = Release|x86
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|x86.Build.0 = Release|x86
+		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,64 @@
+﻿<Page x:Class="Parking_Tag_Picker_WRT.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:Parking_Tag_Picker_WRT"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+      mc:Ignorable="d">
+
+
+    <Grid x:Name="LayoutRoot" Background="#FF236A93">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+
+        <StackPanel x:Name="TitlePanel"
+                    Grid.Row="0"
+                    Margin="12,17,0,28">
+            <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Text="Parking Tag Picker" />
+            <TextBlock Margin="9,-7,0,0"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       Text="Council Zones" />
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel"
+              Grid.Row="1"
+              Margin="12,0,12,0">
+
+            <ListView x:Name="ZonesListView"
+                      Margin="0,0,-12,0"
+                      ItemsSource="{Binding CouncilNameItems}"
+                      SelectedItem="{Binding SelectedCouncilName,
+                                             Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,17">
+                            <TextBlock Style="{ThemeResource ListViewItemTextBlockStyle}"
+                                       Text="{Binding CouncilAcronym}"
+                                       TextWrapping="Wrap" />
+                            <TextBlock Margin="12,-6,12,0"
+                                       Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"
+                                       Text="{Binding CouncilFullName}"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+        <!--
+            Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+            
+            Before shipping remove this XAML and the image itself.
+        -->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+    </Grid>
+</Page>
