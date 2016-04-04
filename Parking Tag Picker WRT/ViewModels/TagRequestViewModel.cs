@@ -124,8 +124,8 @@ namespace Parking_Tag_Picker_WRT.ViewModel
         }
 
 
-        private string _selectedParkDuration;
-        public string SelectedParkDuration
+        private TimeSpan? _selectedParkDuration;
+        public TimeSpan? SelectedParkDuration
         {
             get
             {
@@ -176,7 +176,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
         public async Task SendParkingTagSMSRequest()
         {
-            //SMSTaskExtensions.SendParkingTagSMSRequest(SelectedZone, RegNumber, SelectedParkDuration);
+            SMSTaskExtensions.SendParkingTagSMSRequest(SelectedZone, RegNumber, SelectedParkDuration);
 
         }
 

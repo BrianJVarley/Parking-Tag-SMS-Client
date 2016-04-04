@@ -84,6 +84,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Extensions\SMSTaskExtensions.cs" />
+    <Compile Include="Helpers\AppConstants.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Interfaces\INavigationCallback.cs" />
     <Compile Include="MainPage.xaml.cs">

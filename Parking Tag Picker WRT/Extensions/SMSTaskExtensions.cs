@@ -1,4 +1,5 @@
-﻿using Parking_Tag_Picker_WRT.Models;
+﻿using Parking_Tag_Picker_WRT.Helpers;
+using Parking_Tag_Picker_WRT.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +12,15 @@ namespace Parking_Tag_Picker_WRT.Extensions
     public static class SMSTaskExtensions
     {
 
-        public async static Task SendParkingTagSMSRequest(ZoneInfo SelectedZone, string RegNumber, string ParkingDuration)
+        public async static Task SendParkingTagSMSRequest(ZoneInfo SelectedZone, string RegNumber, TimeSpan? ParkingDuration)
         {
-            string SMSBookingRecipient = "53311";
+            var SMSBookingRecipient = AppConstants.ServiceProviderNumber;
 
             ChatMessage msg = new ChatMessage();
-            msg.Body = SelectedZone + RegNumber + ParkingDuration;
+            msg.Body = SelectedZone.ZoneName + RegNumber + ParkingDuration;
             msg.Recipients.Add(SMSBookingRecipient);
             ChatMessageStore cms = await ChatMessageManager.RequestStoreAsync();
             await cms.SendMessageAsync(msg);
-
 
         }
     }
