@@ -15,14 +15,15 @@ namespace Parking_Tag_Picker_WRT.Extensions
         public async static Task SendParkingTagSMSRequest(ZoneInfo selectedZone, string regNumber, TimeSpan? parkingDuration)
         {
             var SMSBookingRecipient = AppConstants.ServiceProviderNumber;
+            double parkingDurationMinutes;
 
             if(parkingDuration.HasValue)
             {
-                var parkingDurationMinutes = parkingDuration.Value.TotalMinutes;         
+                parkingDurationMinutes = parkingDuration.Value.TotalMinutes;         
             }
             else
             {
-                parkingDuration = TimeSpan.Zero;
+                parkingDurationMinutes = 00;
             }
 
 
@@ -33,7 +34,7 @@ namespace Parking_Tag_Picker_WRT.Extensions
             //await cms.SendMessageAsync(msg);
 
            ChatMessage chat = new ChatMessage();
-           chat.Body = "Park" + " " + selectedZone.ZoneName + " " + parkingDuration + " " + regNumber;
+           chat.Body = "Park" + " " + selectedZone.ZoneName + " " + parkingDurationMinutes + " " + regNumber;
            chat.Recipients.Add(SMSBookingRecipient);
            await Windows.ApplicationModel.Chat.ChatMessageManager.ShowComposeSmsMessageAsync(chat);
 
