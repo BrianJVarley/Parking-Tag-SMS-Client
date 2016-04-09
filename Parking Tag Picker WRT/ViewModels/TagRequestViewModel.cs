@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Parking_Tag_Picker_WRT.Extensions;
 using Parking_Tag_Picker_WRT.Helpers;
+using Parking_Tag_Picker_WRT.Interfaces;
 using Parking_Tag_Picker_WRT.Models;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 {
     public class TagRequestViewModel : INotifyPropertyChanged
     {
+
 
         private DatabaseHelper _dbHelper;
         Dictionary<int, string> TableNameDictonary = new Dictionary<int, string>();
@@ -42,11 +44,20 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             TagRequestCommand = new RelayCommand(async () =>
             {
                 await SendParkingTagSMSRequest();
-            });
+            }  );
         }
 
 
-        private bool _canSendCommand = true;
+
+        //private bool CanSendCommand()
+        //{
+        //    if(SelectedParkDuration != null && RegNumber != string.Empty && SelectedZone != null)
+        //    {
+        //        return true;
+        //    }
+
+        //    return false;
+        //}
         
 
 
@@ -69,8 +80,8 @@ namespace Parking_Tag_Picker_WRT.ViewModel
         }
 
 
-        private ObservableCollection<ZoneInfo> _zoneInfoCollection;
-        public ObservableCollection<ZoneInfo> ZoneInfoCollection
+        private ObservableCollection<ZoneInfoPage> _zoneInfoCollection;
+        public ObservableCollection<ZoneInfoPage> ZoneInfoCollection
         {
             get
             {

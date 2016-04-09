@@ -83,6 +83,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Extensions\SMSTaskExtensions.cs" />
     <Compile Include="Helpers\AppConstants.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
@@ -100,6 +104,10 @@
     </Compile>
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TagRequestViewModel.cs" />
+    <Compile Include="ViewModels\ZoneInfoViewModel.cs" />
+    <Compile Include="ZoneInfoPage.xaml.cs">
+      <DependentUpon>ZoneInfoPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -116,6 +124,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TagRequestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ZoneInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

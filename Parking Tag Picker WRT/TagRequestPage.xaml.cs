@@ -50,6 +50,10 @@ namespace Parking_Tag_Picker_WRT
 
         }
 
-        
+        private void ZoneInfoAppBarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ZoneInfoPage), vm.SelectedZone);
+        }
+
     }
 }

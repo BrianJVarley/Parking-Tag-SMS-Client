@@ -140,6 +140,7 @@
         <CommandBar x:Name="appBar" IsSticky="True">
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="ZoneInfoAppBarBtn"
+                              Click="ZoneInfoAppBarBtn_Click"
                               Icon="Help"
                               Label="zone info" />
             </CommandBar.PrimaryCommands>
