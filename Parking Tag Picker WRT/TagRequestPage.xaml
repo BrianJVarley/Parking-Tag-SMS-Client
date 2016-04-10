@@ -59,7 +59,7 @@
                      HorizontalAlignment="Center"
                      VerticalAlignment="Top"
                      Background="Azure"
-                     Header="Registration Number"
+                     Header="Registration Number:"
                      Text="{Binding RegNumber,
                                     Mode=TwoWay}"
                      TextWrapping="Wrap" />
@@ -108,7 +108,7 @@
                         Height="100"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Bottom"
-                        Header="Parking Duration"
+                        Header="Parking Duration:"
                         Time="{Binding SelectedParkDuration,
                                        Mode=TwoWay}" />
 

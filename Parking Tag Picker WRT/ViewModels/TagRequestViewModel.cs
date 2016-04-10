@@ -44,20 +44,20 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             TagRequestCommand = new RelayCommand(async () =>
             {
                 await SendParkingTagSMSRequest();
-            }  );
+            } ,CanSendCommand );
         }
 
 
 
-        //private bool CanSendCommand()
-        //{
-        //    if(SelectedParkDuration != null && RegNumber != string.Empty && SelectedZone != null)
-        //    {
-        //        return true;
-        //    }
+        private bool CanSendCommand()
+        {
+            if (SelectedParkDuration != null && RegNumber != string.Empty && SelectedZone.ZoneName != null)
+            {
+                return true;
+            }
 
-        //    return false;
-        //}
+            return false;
+        }
         
 
 
@@ -80,8 +80,8 @@ namespace Parking_Tag_Picker_WRT.ViewModel
         }
 
 
-        private ObservableCollection<ZoneInfoPage> _zoneInfoCollection;
-        public ObservableCollection<ZoneInfoPage> ZoneInfoCollection
+        private ObservableCollection<ZoneInfo> _zoneInfoCollection;
+        public ObservableCollection<ZoneInfo> ZoneInfoCollection
         {
             get
             {

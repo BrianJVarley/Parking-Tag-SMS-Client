@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parking_Tag_Picker_WRT.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -18,8 +19,8 @@ namespace Parking_Tag_Picker_WRT.ViewModels
         }
 
        
-        private ZoneInfoPage _selectedZone;
-        public ZoneInfoPage SelectedZone
+        private ZoneInfo _selectedZone;
+        public ZoneInfo SelectedZone
         {
             get
             {

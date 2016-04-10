@@ -57,11 +57,11 @@ namespace Parking_Tag_Picker_WRT.Helpers
         /// </summary>
         /// <param name="zoneId"></param>
         /// <returns></returns>
-        public ZoneInfoPage ReadZone(int zoneId, string tableName)
+        public ZoneInfo ReadZone(int zoneId, string tableName)
         {
             using (var dbConn = new SQLiteConnection(tableName))
             {
-                var existingZone = dbConn.Query<ZoneInfoPage>("select * from {0} where ObjectId ={1}", tableName, zoneId).FirstOrDefault();
+                var existingZone = dbConn.Query<ZoneInfo>("select * from {0} where ObjectId ={1}", tableName, zoneId).FirstOrDefault();
                 return existingZone;
             }
         }
@@ -71,12 +71,12 @@ namespace Parking_Tag_Picker_WRT.Helpers
         ///  Retrieve zone info list from the database.   
         /// </summary>
         /// <returns></returns>
-        public ObservableCollection<ZoneInfoPage> ReadZones(string tableName)
+        public ObservableCollection<ZoneInfo> ReadZones(string tableName)
         {
             using (var dbConn = new SQLiteConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, AppDBPath), true))
             {
-                List<ZoneInfoPage> zoneInfo = dbConn.Query<ZoneInfoPage>("select * from " + tableName).ToList<ZoneInfoPage>();
-                ObservableCollection<ZoneInfoPage> zoneInfoCollection = new ObservableCollection<ZoneInfoPage>(zoneInfo);
+                List<ZoneInfo> zoneInfo = dbConn.Query<ZoneInfo>("select * from " + tableName).ToList<ZoneInfo>();
+                ObservableCollection<ZoneInfo> zoneInfoCollection = new ObservableCollection<ZoneInfo>(zoneInfo);
                 return zoneInfoCollection;
             }
         }

@@ -108,7 +108,7 @@ namespace Parking_Tag_Picker_WRT
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
-            ((ZoneInfoViewModel)this.DataContext).SelectedZone = (ZoneInfoPage)e.Parameter;
+            ((ZoneInfoViewModel)this.DataContext).SelectedZone = (ZoneInfo)e.Parameter;
 
         }
 
