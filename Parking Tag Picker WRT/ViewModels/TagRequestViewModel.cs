@@ -34,29 +34,34 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             InitTableNameDictionary();
 
             LoadCommands();
-
         }
 
 
 
-        private void LoadCommands()
+        private async void LoadCommands()
         {
             TagRequestCommand = new RelayCommand(async () =>
             {
                 await SendParkingTagSMSRequest();
-            } ,CanSendCommand );
+            });
         }
 
 
-
-        private bool CanSendCommand()
+    
+        private bool isValidTagRequest = false;
+        public bool IsValidTagRequest
         {
-            if (SelectedParkDuration != null && RegNumber != string.Empty && SelectedZone.ZoneName != null)
+            get { return isValidTagRequest; }
+            set
             {
-                return true;
-            }
+               if (value != isValidTagRequest)
+               {              
+                    isValidTagRequest = value;
+                    RaisePropertyChanged("IsValidTagRequest");
+               }
 
-            return false;
+            }
+              
         }
         
 
@@ -111,6 +116,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
                 if (_regNumber != value)
                 {
                     _regNumber = value;
+                    isValidTagRequest = true;
                     RaisePropertyChanged("RegNumber");
                 }
             }
@@ -129,6 +135,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
                 if (_selectedZone != value)
                 {
                     _selectedZone = value;
+                    isValidTagRequest = true;
                     RaisePropertyChanged("SelectedZone");
                 }
             }
@@ -148,6 +155,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
                 if (_selectedParkDuration != value)
                 {
                     _selectedParkDuration = value;
+                    isValidTagRequest = true;
                     RaisePropertyChanged("SelectedParkDuration");
                 }
             }
@@ -187,7 +195,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
         public async Task SendParkingTagSMSRequest()
         {
-            SMSTaskExtensions.SendParkingTagSMSRequest(SelectedZone, RegNumber, SelectedParkDuration);
+            await SMSTaskExtensions.SendParkingTagSMSRequest(SelectedZone, RegNumber, SelectedParkDuration);
 
         }
 

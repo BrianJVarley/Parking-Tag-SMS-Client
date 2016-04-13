@@ -121,6 +121,8 @@
                     VerticalAlignment="Bottom"
                     Command="{Binding TagRequestCommand}"
                     Content="Send"
+                    IsEnabled="{Binding IsValidTagRequest,
+                                        Mode=TwoWay}"
                     Style="{StaticResource CustomButtonStyle}" />
 
         </Grid>
@@ -137,7 +139,7 @@
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar x:Name="appBar" IsSticky="True">
+        <CommandBar x:Name="appBar" >
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="ZoneInfoAppBarBtn"
                               Click="ZoneInfoAppBarBtn_Click"

@@ -38,7 +38,6 @@ namespace Parking_Tag_Picker_WRT.ViewModels
         }
 
 
-        
       
         public event PropertyChangedEventHandler PropertyChanged;
 
