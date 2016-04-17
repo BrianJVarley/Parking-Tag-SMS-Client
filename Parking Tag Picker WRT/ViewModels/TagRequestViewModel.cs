@@ -17,20 +17,14 @@ using System.ComponentModel;
 namespace Parking_Tag_Picker_WRT.ViewModel
 {
     [DataContract]
-    public class TagRequestViewModel : INotifyPropertyChanged
+    public class TagRequestViewModel : INotifyPropertyChanged, IAsyncInitialization
     {
 
 
         private DatabaseHelper _dbHelper;
         Dictionary<int, string> TableNameDictonary = new Dictionary<int, string>();
 
-        public RelayCommand TagRequestCommand
-        {
-            get;
-            private set;
-        }
-
-
+        
         public TagRequestViewModel(DatabaseHelper dbHelper)
         {
             this._dbHelper = dbHelper;
@@ -39,14 +33,16 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             LoadCommands();
         }
 
-
-
-        private async void LoadCommands()
+        
+        public RelayCommand TagRequestCommand
         {
-            TagRequestCommand = new RelayCommand(async () =>
-            {
-                await SendParkingTagSMSRequest();
-            });
+            get;
+            private set;
+        }
+
+        private void LoadCommands()
+        {
+            TagRequestCommand = new RelayCommand(async () => { await SendParkingTagSMSRequest(); });
         }
 
 
