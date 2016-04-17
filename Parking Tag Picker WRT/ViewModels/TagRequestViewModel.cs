@@ -11,9 +11,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Runtime.Serialization;
+using System.ComponentModel;
 
 namespace Parking_Tag_Picker_WRT.ViewModel
 {
+    [DataContract]
     public class TagRequestViewModel : INotifyPropertyChanged
     {
 
@@ -103,7 +106,10 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             }
         }
 
+
+
         private string _regNumber;
+        [DataMember]
         public string RegNumber
         {
             get
@@ -142,7 +148,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
         }
 
 
-        private TimeSpan? _selectedParkDuration;
+        private TimeSpan? _selectedParkDuration = TimeSpan.Parse("00:00");
         public TimeSpan? SelectedParkDuration
         {
             get

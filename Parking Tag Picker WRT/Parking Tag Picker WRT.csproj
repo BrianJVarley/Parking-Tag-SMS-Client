@@ -97,6 +97,9 @@
     <Compile Include="Models\CouncilName.cs" />
     <Compile Include="Models\ZoneInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestTagPage.xaml.cs">
+      <DependentUpon>RequestTagPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SQLite.cs" />
     <Compile Include="SQLiteAsync.cs" />
     <Compile Include="TagRequestPage.xaml.cs">
@@ -122,6 +125,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RequestTagPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TagRequestPage.xaml">
       <SubType>Designer</SubType>

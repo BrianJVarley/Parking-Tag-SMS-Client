@@ -28,6 +28,9 @@ namespace Parking_Tag_Picker_WRT
         TagRequestViewModel vm;
         DatabaseHelper dbHelper;
 
+        bool _isNewPageInstance = false;
+
+
         
         public TagRequestPage()
         {
@@ -37,6 +40,9 @@ namespace Parking_Tag_Picker_WRT
             dbHelper = new DatabaseHelper();
             vm = new TagRequestViewModel(dbHelper);
             this.DataContext = vm;
+
+            _isNewPageInstance = true;      
+
         }
 
         /// <summary>
@@ -50,6 +56,7 @@ namespace Parking_Tag_Picker_WRT
             vm.InitZoneInfoAsync();
 
         }
+
 
         private void ZoneInfoAppBarBtn_Click(object sender, RoutedEventArgs e)
         {
