@@ -4,15 +4,21 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:Parking_Tag_Picker_WRT"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:helper="using:Parking_Tag_Picker_WRT.Helpers"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       mc:Ignorable="d">
 
+    <Page.Resources>
+        <helper:StringFormatConverter x:Name="StringFormatConverter"/>
+    </Page.Resources>
+
     <Grid x:Name="LayoutRoot" Background="#FF236A93">
+            
 
         <Grid.ChildrenTransitions>
-            <TransitionCollection>
-                <EntranceThemeTransition />
-            </TransitionCollection>
+        <TransitionCollection>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
         </Grid.ChildrenTransitions>
 
         <Grid.RowDefinitions>
@@ -47,9 +53,10 @@
             </StackPanel.Resources>
 
             <TextBlock>
-        <Run Text="Hourly Tariff:"/>
+        <Run Text="Hourly Tariff:" />
         <LineBreak/>
-        <Run Text="{Binding SelectedZone.TariffPH}" Foreground="White"/>
+        <Run Text="{Binding SelectedZone.TariffPH, Converter={StaticResource StringFormatConverter}, 
+         ConverterParameter='{}{0:C}' }" Foreground="White" />
             </TextBlock>
 
             <TextBlock>

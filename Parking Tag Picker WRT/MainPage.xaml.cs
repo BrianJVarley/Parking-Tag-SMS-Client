@@ -54,7 +54,7 @@ namespace Parking_Tag_Picker_WRT
 
         void INavigationCallback.NavigateTo(string ItemID)
         {
-            Frame.Navigate(typeof(TagRequestPage), ItemID);
+            Frame.Navigate(typeof(RequestTagPage), ItemID);
         }
     }
 }

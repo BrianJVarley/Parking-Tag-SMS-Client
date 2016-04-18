@@ -17,7 +17,7 @@ using System.ComponentModel;
 namespace Parking_Tag_Picker_WRT.ViewModel
 {
     [DataContract]
-    public class TagRequestViewModel : INotifyPropertyChanged, IAsyncInitialization
+    public class TagRequestViewModel : INotifyPropertyChanged
     {
 
 

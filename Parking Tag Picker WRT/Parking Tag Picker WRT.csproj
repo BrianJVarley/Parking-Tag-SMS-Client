@@ -90,6 +90,7 @@
     <Compile Include="Extensions\SMSTaskExtensions.cs" />
     <Compile Include="Helpers\AppConstants.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
+    <Compile Include="Helpers\StringFormatConverter.cs" />
     <Compile Include="Interfaces\IAsyncInitialization.cs" />
     <Compile Include="Interfaces\INavigationCallback.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -103,9 +104,6 @@
     </Compile>
     <Compile Include="SQLite.cs" />
     <Compile Include="SQLiteAsync.cs" />
-    <Compile Include="TagRequestPage.xaml.cs">
-      <DependentUpon>TagRequestPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TagRequestViewModel.cs" />
     <Compile Include="ViewModels\ZoneInfoViewModel.cs" />
@@ -128,10 +126,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="RequestTagPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TagRequestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
