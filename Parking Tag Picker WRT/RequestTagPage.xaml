@@ -151,7 +151,7 @@
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="ZoneInfoAppBarBtn"
                               Click="ZoneInfoAppBarBtn_Click"
-                              Icon="Help"
+                              Icon="View"
                               Label="zone info" />
             </CommandBar.PrimaryCommands>
         </CommandBar>

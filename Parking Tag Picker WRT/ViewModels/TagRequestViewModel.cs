@@ -47,7 +47,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
 
     
-        private bool isValidTagRequest = false;
+        private bool isValidTagRequest = true;
         public bool IsValidTagRequest
         {
             get { return isValidTagRequest; }

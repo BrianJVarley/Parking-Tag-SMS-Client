@@ -27,6 +27,9 @@ namespace Parking_Tag_Picker_WRT
     /// </summary>
     public sealed partial class ZoneInfoPage : Page
     {
+
+        private const string FAQUrl = @"https://www.parkingtag.ie/faq.html";
+
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
@@ -118,5 +121,15 @@ namespace Parking_Tag_Picker_WRT
         }
 
         #endregion
+
+        private async void parkinTagFAQBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Create a Uri object from a URI string 
+            var uri = new Uri(FAQUrl);
+    
+           // Launch the URI
+           var success = await Windows.System.Launcher.LaunchUriAsync(uri);            
+
+        }
     }
 }

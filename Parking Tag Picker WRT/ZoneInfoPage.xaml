@@ -84,4 +84,17 @@
 
 
     </Grid>
+
+
+    <Page.BottomAppBar>
+        <CommandBar x:Name="appBar" >
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="parkinTagFAQBtn"
+                              Click="parkinTagFAQBtn_Click"
+                              Icon="Help"
+                              Label="FAQ" />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
 </Page>
