@@ -12,7 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Runtime.Serialization;
-using System.ComponentModel;
 
 namespace Parking_Tag_Picker_WRT.ViewModel
 {
@@ -22,14 +21,16 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
 
         private DatabaseHelper _dbHelper;
-        Dictionary<int, string> TableNameDictonary = new Dictionary<int, string>();
+        private Dictionary<int, string> TableNameDictionary = new Dictionary<int, string>();
+        private Dictionary<int, string> CouncilDisplayNameDictionary = new Dictionary<int, string>();
+        private int CouncilId; 
 
         
         public TagRequestViewModel(DatabaseHelper dbHelper)
         {
             this._dbHelper = dbHelper;
-            InitTableNameDictionary();
-
+            TableNameInit();
+            CouncilDisplayNameInit();
             LoadCommands();
         }
 
@@ -47,22 +48,39 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
 
     
-        private bool isValidTagRequest = true;
+        private bool _isValidTagRequest = false;
         public bool IsValidTagRequest
         {
-            get { return isValidTagRequest; }
+            get { return _isValidTagRequest; }
             set
             {
-               if (value != isValidTagRequest)
+               if (value != _isValidTagRequest)
                {              
-                    isValidTagRequest = value;
+                    _isValidTagRequest = value;
                     RaisePropertyChanged("IsValidTagRequest");
                }
 
             }
               
         }
-        
+
+
+
+        private string _councilHeaderDisplayName;
+        public string CouncilHeaderDisplayName
+        {
+            get { return _councilHeaderDisplayName; }
+            set
+            {
+                if (value != _councilHeaderDisplayName)
+                {
+                    _councilHeaderDisplayName = value;
+                    RaisePropertyChanged("CouncilHeaderDisplayName");
+                }
+
+            }
+
+        }
 
 
 
@@ -79,6 +97,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
                 {
                     _selectedCouncilId = value;
                     RaisePropertyChanged("SelectedCouncilId");
+
                 }
             }
         }
@@ -104,24 +123,32 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
 
 
-        private string _regNumber;
+        private string _selectedRegNumber;
         [DataMember]
-        public string RegNumber
+        public string SelectedRegNumber
         {
             get
             {
-                return this._regNumber;
+                return this._selectedRegNumber;
             }
 
             set
             {
-                if (_regNumber != value)
+                if (_selectedRegNumber != value)
                 {
-                    _regNumber = value;
-                    isValidTagRequest = true;
-                    RaisePropertyChanged("RegNumber");
+                    _selectedRegNumber = value;
+                    RaisePropertyChanged("SelectedRegNumber");
+                    CheckValidTagRequest();
                 }
             }
+        }
+
+        private void CheckValidTagRequest()
+        {
+            if (SelectedParkDuration != null && SelectedZone != null
+                && SelectedRegNumber != string.Empty)
+                IsValidTagRequest = true;
+
         }
 
         private ZoneInfo _selectedZone;
@@ -137,8 +164,8 @@ namespace Parking_Tag_Picker_WRT.ViewModel
                 if (_selectedZone != value)
                 {
                     _selectedZone = value;
-                    isValidTagRequest = true;
                     RaisePropertyChanged("SelectedZone");
+                    CheckValidTagRequest();
                 }
             }
         }
@@ -157,8 +184,8 @@ namespace Parking_Tag_Picker_WRT.ViewModel
                 if (_selectedParkDuration != value)
                 {
                     _selectedParkDuration = value;
-                    isValidTagRequest = true;
                     RaisePropertyChanged("SelectedParkDuration");
+                    CheckValidTagRequest();
                 }
             }
         }
@@ -166,18 +193,33 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
 
 
-        private void InitTableNameDictionary()
+        private void TableNameInit()
         {
 
-            TableNameDictonary.Add(0,"DublinCityCouncilTable");
-            TableNameDictonary.Add(1,"DunLaoghaireCityCouncilTable");
-            TableNameDictonary.Add(2,"FingalCouncilTable");
-            TableNameDictonary.Add(3,"SouthDublinCouncilTable");
-            TableNameDictonary.Add(4,"ArklowCouncilTable");
-            TableNameDictonary.Add(5,"DLRCouncilTable");
-            TableNameDictonary.Add(6,"WicklowCouncilTable");
-            TableNameDictonary.Add(7,"TallaghtCouncilTable");
-            TableNameDictonary.Add(8,"GreystonesCouncilTable");
+            TableNameDictionary.Add(0,"DublinCityCouncilTable");
+            TableNameDictionary.Add(1,"DunLaoghaireCityCouncilTable");
+            TableNameDictionary.Add(2,"FingalCouncilTable");
+            TableNameDictionary.Add(3,"SouthDublinCouncilTable");
+            TableNameDictionary.Add(4,"ArklowCouncilTable");
+            TableNameDictionary.Add(5,"DLRCouncilTable");
+            TableNameDictionary.Add(6,"WicklowCouncilTable");
+            TableNameDictionary.Add(7,"TallaghtCouncilTable");
+            TableNameDictionary.Add(8,"GreystonesCouncilTable");
+        }
+
+
+        private void CouncilDisplayNameInit()
+        {
+
+            CouncilDisplayNameDictionary.Add(0, "Dublin City");
+            CouncilDisplayNameDictionary.Add(1, "Dun Laoghaire");
+            CouncilDisplayNameDictionary.Add(2, "Fingal");
+            CouncilDisplayNameDictionary.Add(3, "South Dublin");
+            CouncilDisplayNameDictionary.Add(4, "Arklow");
+            CouncilDisplayNameDictionary.Add(5, "DLR");
+            CouncilDisplayNameDictionary.Add(6, "Wicklow");
+            CouncilDisplayNameDictionary.Add(7, "Tallaght");
+            CouncilDisplayNameDictionary.Add(8, "Greystones");
         }
 
 
@@ -185,8 +227,8 @@ namespace Parking_Tag_Picker_WRT.ViewModel
         public void InitZoneInfoAsync()
         {
             string tableName;
-            int CouncilId = Int32.Parse(SelectedCouncilId);
-            tableName = TableNameDictonary[CouncilId];
+            CouncilId = Int32.Parse(SelectedCouncilId);
+            tableName = TableNameDictionary[CouncilId];
             var result = _dbHelper.Init();
 
             ////Return zone database records
@@ -197,7 +239,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
         public async Task SendParkingTagSMSRequest()
         {
-            await SMSTaskExtensions.SendParkingTagSMSRequest(SelectedZone, RegNumber, SelectedParkDuration);
+            await SMSTaskExtensions.SendParkingTagSMSRequest(SelectedZone, SelectedRegNumber, SelectedParkDuration);
 
         }
 
