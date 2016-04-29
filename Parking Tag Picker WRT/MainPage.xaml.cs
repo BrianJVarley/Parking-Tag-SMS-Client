@@ -1,4 +1,5 @@
-﻿using Parking_Tag_Picker_WRT.Interfaces;
+﻿using Parking_Tag_Picker_WRT.Common;
+using Parking_Tag_Picker_WRT.Interfaces;
 using Parking_Tag_Picker_WRT.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -26,14 +27,32 @@ namespace Parking_Tag_Picker_WRT
     {
         MainViewModel vm;
 
+        private NavigationHelper navigationHelper;
+
         public MainPage()
         {
+
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += navigationHelper_LoadState;
+            this.navigationHelper.SaveState += navigationHelper_SaveState;
+
             //init data context
             this.NavigationCacheMode = NavigationCacheMode.Required;
             this.InitializeComponent();
+
             vm = new MainViewModel(this);
             this.DataContext = vm;
             vm.LoadCouncilNamesData();
+        }
+
+        private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -43,6 +62,8 @@ namespace Parking_Tag_Picker_WRT
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
+
             // TODO: Prepare page for display here.
 
             // TODO: If your application contains multiple pages, ensure that you are
@@ -50,6 +71,7 @@ namespace Parking_Tag_Picker_WRT
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
+
         }
 
         void INavigationCallback.NavigateTo(string ItemID)
