@@ -43,8 +43,12 @@ namespace Parking_Tag_Picker_WRT
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
-            vm = new ZoneInfoViewModel();
-            this.DataContext = vm;
+            if(this.DataContext == null)
+            {
+                vm = new ZoneInfoViewModel();
+                this.DataContext = vm;
+            }
+
         }
 
         /// <summary>

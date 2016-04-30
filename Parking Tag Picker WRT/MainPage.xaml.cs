@@ -40,9 +40,13 @@ namespace Parking_Tag_Picker_WRT
             this.NavigationCacheMode = NavigationCacheMode.Required;
             this.InitializeComponent();
 
-            vm = new MainViewModel(this);
-            this.DataContext = vm;
-            vm.LoadCouncilNamesData();
+            if(this.DataContext == null)
+            {
+                vm = new MainViewModel(this);
+                this.DataContext = vm;
+                vm.LoadCouncilNamesData();
+            }
+          
         }
 
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -65,7 +69,12 @@ namespace Parking_Tag_Picker_WRT
 
 
             // TODO: Prepare page for display here.
-
+            if (this.DataContext == null)
+            {
+                vm = new MainViewModel(this);
+                this.DataContext = vm;
+                vm.LoadCouncilNamesData();
+            }
             // TODO: If your application contains multiple pages, ensure that you are
             // handling the hardware Back button by registering for the
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.

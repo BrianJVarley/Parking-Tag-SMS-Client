@@ -46,10 +46,14 @@ namespace Parking_Tag_Picker_WRT
             //init data context
             this.NavigationCacheMode = NavigationCacheMode.Required;
             _dbHelper = new DatabaseHelper();
-            _vm = new TagRequestViewModel(_dbHelper);
-            this.DataContext = _vm;
 
-            _isNewPageInstance = true;  
+            if(this.DataContext == null)
+            {
+                _vm = new TagRequestViewModel(_dbHelper);
+                this.DataContext = _vm;
+                _isNewPageInstance = true;  
+            }
+    
         }
 
         /// <summary>

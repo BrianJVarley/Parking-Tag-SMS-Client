@@ -59,6 +59,7 @@
          ConverterParameter='{}{0:C}' }" Foreground="White" />
             </TextBlock>
 
+            
             <TextBlock>
         <Run Text="Hours Open:"/>
         <LineBreak/>
