@@ -17,6 +17,7 @@ namespace Parking_Tag_Picker_WRT.Extensions
             var SMSBookingRecipient = AppConstants.ServiceProviderNumber;
             double parkingDurationMinutes;
 
+          
             if(parkingDuration.HasValue)
             {
                 parkingDurationMinutes = parkingDuration.Value.TotalMinutes;         
@@ -26,15 +27,12 @@ namespace Parking_Tag_Picker_WRT.Extensions
                 parkingDurationMinutes = 00;
             }
 
-
-            //ChatMessage msg = new ChatMessage();
-            //msg.Body = SelectedZone.ZoneName + RegNumber + ParkingDuration;
-            //msg.Recipients.Add(SMSBookingRecipient);
-            //ChatMessageStore cms = await ChatMessageManager.RequestStoreAsync();
-            //await cms.SendMessageAsync(msg);
-
            ChatMessage chat = new ChatMessage();
-           chat.Body = "Park" + " " + selectedZone.ZoneName + " " + parkingDurationMinutes + " " + regNumber;
+
+           if(selectedZone.ZoneName != null && parkingDuration != null && regNumber != null)
+           {
+               chat.Body = "Park" + " " + selectedZone.ZoneName + " " + parkingDurationMinutes + " " + regNumber;
+           }
            chat.Recipients.Add(SMSBookingRecipient);
            await Windows.ApplicationModel.Chat.ChatMessageManager.ShowComposeSmsMessageAsync(chat);
 

@@ -33,7 +33,7 @@
             <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Text="Zone Info" />
             <TextBlock Margin="9,-7,0,0"
                        Style="{StaticResource HeaderTextBlockStyle}"
-                       Text="" />
+                       Text="{Binding SelectedZone.ZoneName}" />
         </StackPanel>
 
 
@@ -45,41 +45,55 @@
           Grid.Row="1" Margin="5,0">
             <StackPanel.Resources>
                 <Style TargetType="TextBlock">
-                    <Setter Property="FontSize" Value="24"/>
+                    <Setter Property="FontSize" Value="30"/>
                     <Setter Property="Width" Value="270"/>
-                    <Setter Property="Foreground" Value="Gray"/>
+                    <Setter Property="Foreground" Value="DarkGray"/>
                     <Setter Property="Margin" Value="0,5"/>
                 </Style>
             </StackPanel.Resources>
 
-            <TextBlock>
-        <Run Text="Hourly Tariff:" />
-        <LineBreak/>
-        <Run Text="{Binding SelectedZone.TariffPH, Converter={StaticResource StringFormatConverter}, 
-         ConverterParameter='{}{0:C}' }" Foreground="White" />
-            </TextBlock>
+        <TextBlock HorizontalAlignment="Left">
+            <Run Text="Hourly Tariff:" />
+        </TextBlock>
 
-            
-            <TextBlock>
-        <Run Text="Hours Open:"/>
-        <LineBreak/>
-        <Run Text="{Binding SelectedZone.HoursOpen}" Foreground="White"/>
-        <LineBreak/>
-            </TextBlock>
 
+        <Border BorderThickness="1" BorderBrush="White">
             <TextBlock>
-        <Run Text="Days Open:"/>
-        <LineBreak/>
-        <Run Text="{Binding SelectedZone.DaysOpen}" Foreground="White"/>
-        <LineBreak/>
+                <Run Text="{Binding SelectedZone.TariffPH, Converter={StaticResource StringFormatConverter}, 
+                ConverterParameter='{}{0:C}' }" Foreground="White" />
             </TextBlock>
+        </Border>
 
+
+        <TextBlock HorizontalAlignment="Left">
+            <Run Text="Hours Open:"/>
+        </TextBlock>
+
+        <Border BorderThickness="1" BorderBrush="White">
             <TextBlock>
-        <Run Text="Parking Restrictions:"/>
-        <LineBreak/>
-        <Run Text="{Binding SelectedZone.Restrictions}" Foreground="White"/>
-        <LineBreak/>
+                <Run Text="{Binding SelectedZone.HoursOpen}" Foreground="White"/>
             </TextBlock>
+        </Border>
+
+        <TextBlock HorizontalAlignment="Left">
+            <Run Text="Days Open:"/>
+        </TextBlock>
+
+        <Border BorderThickness="1" BorderBrush="White">
+            <TextBlock>
+                <Run Text="{Binding SelectedZone.DaysOpen}" Foreground="White"/>
+            </TextBlock>
+        </Border>
+
+        <TextBlock HorizontalAlignment="Left">
+            <Run Text="Parking Restrictions:"/>
+        </TextBlock>
+
+        <Border BorderThickness="1" BorderBrush="White">
+            <TextBlock>
+            <Run Text="{Binding SelectedZone.Restrictions}" Foreground="White"/>
+            </TextBlock>
+        </Border>
 
         </StackPanel>
 

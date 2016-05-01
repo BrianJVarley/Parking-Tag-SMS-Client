@@ -216,7 +216,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             CouncilDisplayNameDictionary.Add(2, "Fingal");
             CouncilDisplayNameDictionary.Add(3, "South Dublin");
             CouncilDisplayNameDictionary.Add(4, "Arklow");
-            CouncilDisplayNameDictionary.Add(5, "DLR");
+            CouncilDisplayNameDictionary.Add(5, "DLH");
             CouncilDisplayNameDictionary.Add(6, "Wicklow");
             CouncilDisplayNameDictionary.Add(7, "Tallaght");
             CouncilDisplayNameDictionary.Add(8, "Greystones");
@@ -229,6 +229,9 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             string tableName;
             CouncilId = Int32.Parse(SelectedCouncilId);
             tableName = TableNameDictionary[CouncilId];
+
+            CouncilHeaderDisplayName = CouncilDisplayNameDictionary[CouncilId];
+
             var result = _dbHelper.Init();
 
             ////Return zone database records

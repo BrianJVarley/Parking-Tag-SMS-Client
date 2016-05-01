@@ -157,5 +157,11 @@ namespace Parking_Tag_Picker_WRT
         {
             Frame.Navigate(typeof(ZoneInfoPage), _vm.SelectedZone);
         }
+
+        //private void regNumberTextBox_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (regNumberTextBox.Text != string.Empty)
+        //    regNumberTextBox.Text = regNumberTextBox.Text.ToUpper();
+        //}
     }
 }
