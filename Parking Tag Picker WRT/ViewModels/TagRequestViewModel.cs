@@ -32,6 +32,8 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             TableNameInit();
             CouncilDisplayNameInit();
             LoadCommands();
+
+            IsValidTagRequest = false;
         }
 
         

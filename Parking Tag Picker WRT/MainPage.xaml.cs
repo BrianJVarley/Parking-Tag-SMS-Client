@@ -37,7 +37,7 @@ namespace Parking_Tag_Picker_WRT
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
             //init data context
-            this.NavigationCacheMode = NavigationCacheMode.Required;
+            //this.NavigationCacheMode = NavigationCacheMode.Required;
             this.InitializeComponent();
 
             if(this.DataContext == null)

@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.System;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -158,6 +159,16 @@ namespace Parking_Tag_Picker_WRT
             Frame.Navigate(typeof(ZoneInfoPage), _vm.SelectedZone);
         }
 
+        private void regNumberTextBox_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key.Equals(VirtualKey.Enter))
+            {
+                FocusManager.TryMoveFocus(FocusNavigationDirection.Next);
+            }
+
+        }
+
+      
         //private void regNumberTextBox_LostFocus(object sender, RoutedEventArgs e)
         //{
         //    if (regNumberTextBox.Text != string.Empty)
