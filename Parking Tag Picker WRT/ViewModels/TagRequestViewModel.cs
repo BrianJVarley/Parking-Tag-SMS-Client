@@ -43,9 +43,16 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             private set;
         }
 
+        public RelayCommand SetTimerCommand
+        {
+            get;
+            private set;
+        }
+
         private void LoadCommands()
         {
             TagRequestCommand = new RelayCommand(async () => { await SendParkingTagSMSRequest(); });
+            SetTimerCommand = new RelayCommand(async () => { await ShowTimerConfirmationDialog(); });
         }
 
 
@@ -253,6 +260,34 @@ namespace Parking_Tag_Picker_WRT.ViewModel
         public void RaisePropertyChanged(string prop)
         {
             if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
+        }
+
+        private async Task ShowTimerConfirmationDialog()
+        {
+            var result = await MessageDialogHelper.Show("Set timer for current parking tag?" + Environment.NewLine 
+                + "This will overwrite any existing parking timers", "Set Parking Timer");
+
+            if (result.Label == "OK")
+            {
+                //set timer for current parking tag
+
+
+
+            }
+            if(result.Label == "Cancel")
+            {
+                //don't set timer for current parking tag
+                return;
+            }
+        }
+
+
+        private void SetParkingTagTimer()
+        {
+
+            //set timer to current parking tag and start background task
+
+
         }
 
 

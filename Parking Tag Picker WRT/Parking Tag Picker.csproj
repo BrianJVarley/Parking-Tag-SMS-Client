@@ -90,6 +90,7 @@
     <Compile Include="Extensions\SMSTaskExtensions.cs" />
     <Compile Include="Helpers\AppConstants.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
+    <Compile Include="Helpers\MessageDialogHelper.cs" />
     <Compile Include="Helpers\StringFormatConverter.cs" />
     <Compile Include="Interfaces\IAsyncInitialization.cs" />
     <Compile Include="Interfaces\INavigationCallback.cs" />

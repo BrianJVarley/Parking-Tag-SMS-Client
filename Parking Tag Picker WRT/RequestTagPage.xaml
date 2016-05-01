@@ -53,15 +53,15 @@
             <TextBox x:Name="regNumberTextBox"
                      Width="270"
                      Height="50"
-                     FontSize="28"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Top"
                      Background="Azure"
+                     FontSize="28"
+                     KeyDown="regNumberTextBox_KeyDown"
                      TabIndex="0"
                      Text="{Binding SelectedRegNumber,
                                     Mode=TwoWay}"
-                     TextWrapping="Wrap"
-                     KeyDown="regNumberTextBox_KeyDown"/>
+                     TextWrapping="Wrap" />
 
 
             <TextBlock HorizontalAlignment="Left" Text="Parking Zone:" />
@@ -141,7 +141,13 @@
                               Icon="View"
                               IsEnabled="{Binding IsValidTagRequest,
                                                   Mode=TwoWay}"
-                              Label="zone info" />
+                              Label="info" />
+                <AppBarButton x:Name="SetTimerAppBarBtn"
+                              Command="{Binding Path=SetTimerCommand}"
+                              Icon="Clock"
+                              IsEnabled="{Binding IsValidTagRequest,
+                                                  Mode=TwoWay}"
+                              Label="timer" />
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

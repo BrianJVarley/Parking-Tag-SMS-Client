@@ -168,7 +168,6 @@ namespace Parking_Tag_Picker_WRT
 
         }
 
-      
         //private void regNumberTextBox_LostFocus(object sender, RoutedEventArgs e)
         //{
         //    if (regNumberTextBox.Text != string.Empty)
