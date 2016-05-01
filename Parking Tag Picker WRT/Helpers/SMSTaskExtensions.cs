@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Chat;
 
-namespace Parking_Tag_Picker_WRT.Extensions
+namespace Parking_Tag_Picker_WRT.Helpers
 {
     public static class SMSTaskExtensions
     {

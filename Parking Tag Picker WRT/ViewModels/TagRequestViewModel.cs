@@ -1,5 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using Parking_Tag_Picker_WRT.Extensions;
+using Parking_Tag_Picker_WRT.Helpers;
 using Parking_Tag_Picker_WRT.Helpers;
 using Parking_Tag_Picker_WRT.Interfaces;
 using Parking_Tag_Picker_WRT.Models;
@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Runtime.Serialization;
 using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
+using System.Diagnostics;
 
 namespace Parking_Tag_Picker_WRT.ViewModel
 {
@@ -21,7 +22,8 @@ namespace Parking_Tag_Picker_WRT.ViewModel
     public class TagRequestViewModel : INotifyPropertyChanged
     {
 
-
+        private Stopwatch StopWatch = new Stopwatch();
+        private string ElapsedTime = string.Empty;
         private DatabaseHelper _dbHelper;
         private Dictionary<int, string> TableNameDictionary = new Dictionary<int, string>();
         private Dictionary<int, string> CouncilDisplayNameDictionary = new Dictionary<int, string>();
@@ -272,6 +274,9 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             if (result.Label == "OK")
             {
                 //Set timer for current parking tag
+                SetParkingTagTimer();
+
+
                 //Create the live tile
                 CreateLiveTile();
 
@@ -290,6 +295,14 @@ namespace Parking_Tag_Picker_WRT.ViewModel
         {
 
             //set timer to current parking tag and start background task
+            StopWatch.Start();
+            // Get the elapsed time as a TimeSpan value.
+            var ts = (SelectedParkDuration ?? StopWatch.Elapsed) - StopWatch.Elapsed;
+
+            // Format and display the TimeSpan value. 
+            ElapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds / 10);
 
 
         }
@@ -299,13 +312,13 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             var tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150PeekImageAndText01);
 
             var tileImage = tileXml.GetElementsByTagName("image")[0] as XmlElement;
-            tileImage.SetAttribute("src", "ms-appx:///Assets/Icon.png");
+            tileImage.SetAttribute("src", "ms-appx:///Assets/Logo.scale-140.png");
 
             var tileText = tileXml.GetElementsByTagName("text");
             (tileText[0] as XmlElement).InnerText = "Zone:";
             (tileText[1] as XmlElement).InnerText = " " + SelectedZone.ZoneName;
-            (tileText[2] as XmlElement).InnerText = "";
-            (tileText[3] as XmlElement).InnerText = "";
+            (tileText[2] as XmlElement).InnerText = "Time remaining:";
+            (tileText[3] as XmlElement).InnerText = " " + ElapsedTime;
 
             var tileNotification = new TileNotification(tileXml);
             TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);

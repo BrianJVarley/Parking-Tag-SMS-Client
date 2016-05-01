@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Store;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.System;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -29,6 +31,8 @@ namespace Parking_Tag_Picker_WRT
     {
 
         private const string FAQUrl = @"https://www.parkingtag.ie/faq.html";
+        string APP_ID = CurrentApp.AppId.ToString();
+
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -47,8 +51,16 @@ namespace Parking_Tag_Picker_WRT
             {
                 vm = new ZoneInfoViewModel();
                 this.DataContext = vm;
+
+                ShareReviewAppTask();
             }
 
+        }
+
+
+        private async void ShareReviewAppTask()
+        {
+            await Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + APP_ID));
         }
 
         /// <summary>

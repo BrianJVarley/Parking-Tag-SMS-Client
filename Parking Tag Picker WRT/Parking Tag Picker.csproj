@@ -87,7 +87,7 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="Extensions\SMSTaskExtensions.cs" />
+    <Compile Include="Helpers\SMSTaskExtensions.cs" />
     <Compile Include="Helpers\AppConstants.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Helpers\MessageDialogHelper.cs" />
