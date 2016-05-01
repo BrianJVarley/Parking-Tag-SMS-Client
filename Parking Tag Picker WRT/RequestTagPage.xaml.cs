@@ -164,14 +164,14 @@ namespace Parking_Tag_Picker_WRT
             if (e.Key.Equals(VirtualKey.Enter))
             {
                 FocusManager.TryMoveFocus(FocusNavigationDirection.Next);
+
+                if (regNumberTextBox.Text != string.Empty)
+                    regNumberTextBox.Text = regNumberTextBox.Text.ToUpper();
+
             }
 
         }
 
-        //private void regNumberTextBox_LostFocus(object sender, RoutedEventArgs e)
-        //{
-        //    if (regNumberTextBox.Text != string.Empty)
-        //    regNumberTextBox.Text = regNumberTextBox.Text.ToUpper();
-        //}
+       
     }
 }
