@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Runtime.Serialization;
+using Windows.UI.Notifications;
+using Windows.Data.Xml.Dom;
 
 namespace Parking_Tag_Picker_WRT.ViewModel
 {
@@ -269,14 +271,16 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
             if (result.Label == "OK")
             {
-                //set timer for current parking tag
-
+                //Set timer for current parking tag
+                //Create the live tile
+                CreateLiveTile();
 
 
             }
             if(result.Label == "Cancel")
             {
                 //don't set timer for current parking tag
+                //step out of method
                 return;
             }
         }
@@ -287,6 +291,24 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
             //set timer to current parking tag and start background task
 
+
+        }
+
+        private void CreateLiveTile()
+        {
+            var tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150PeekImageAndText01);
+
+            var tileImage = tileXml.GetElementsByTagName("image")[0] as XmlElement;
+            tileImage.SetAttribute("src", "ms-appx:///Assets/Icon.png");
+
+            var tileText = tileXml.GetElementsByTagName("text");
+            (tileText[0] as XmlElement).InnerText = "Zone:";
+            (tileText[1] as XmlElement).InnerText = " " + SelectedZone.ZoneName;
+            (tileText[2] as XmlElement).InnerText = "";
+            (tileText[3] as XmlElement).InnerText = "";
+
+            var tileNotification = new TileNotification(tileXml);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
 
         }
 
