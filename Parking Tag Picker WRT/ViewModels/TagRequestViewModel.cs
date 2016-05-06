@@ -304,6 +304,18 @@ namespace Parking_Tag_Picker_WRT.ViewModel
                 ts.Hours, ts.Minutes, ts.Seconds,
                 ts.Milliseconds / 10);
 
+            //Save timespan, currenttime and elapsedtime to local settings 
+            //in order to use in the timer background service
+            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            localSettings.Values["timerStartTime"] = DateTime.Now.TimeOfDay;
+            localSettings.Values["userParkingDuration"] = SelectedParkDuration;
+
+            if (localSettings.Values.ContainsKey("timerStartTime") && localSettings.Values.ContainsKey("userParkingDuration"))
+            {
+                var test = localSettings.Values["timerStartTime"];
+            }
+
 
         }
 
