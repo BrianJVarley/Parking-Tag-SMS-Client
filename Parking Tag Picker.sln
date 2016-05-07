@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parking Tag Picker", "Parking Tag Picker WRT\Parking Tag Picker.csproj", "{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingTimerTask", "ParkingTimerTask\ParkingTimerTask.csproj", "{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,14 @@ Global
 		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|x86.ActiveCfg = Release|x86
 		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|x86.Build.0 = Release|x86
 		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|x86.Deploy.0 = Release|x86
+		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Release|ARM.ActiveCfg = Release|Any CPU
+		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -311,10 +311,12 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             localSettings.Values["timerStartTime"] = DateTime.Now.TimeOfDay;
             localSettings.Values["userParkingDuration"] = SelectedParkDuration;
 
-            if (localSettings.Values.ContainsKey("timerStartTime") && localSettings.Values.ContainsKey("userParkingDuration"))
-            {
-                var test = localSettings.Values["timerStartTime"];
-            }
+
+            //Code to retrieve local settings key values ->
+            //if (localSettings.Values.ContainsKey("timerStartTime") && localSettings.Values.ContainsKey("userParkingDuration"))
+            //{
+            //    var test = localSettings.Values["timerStartTime"];
+            //}
 
 
         }

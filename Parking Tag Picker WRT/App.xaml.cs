@@ -5,8 +5,10 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Background;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -120,12 +122,34 @@ namespace Parking_Tag_Picker_WRT
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
-            var deferral = e.SuspendingOperation.GetDeferral();
+            //var deferral = e.SuspendingOperation.GetDeferral();
 
+            //Registration of ParkingTimer background task -->
+            string myTaskName = "UpdateTimerTask";
+
+            // check if task is already registered
+            foreach (var cur in BackgroundTaskRegistration.AllTasks)
+            if (cur.Value.Name == myTaskName)
+            {
+                await(new MessageDialog("Task already registered")).ShowAsync();
+                return;
+            }
+
+            // Windows Phone app must call this to use trigger types (see MSDN)
+            await BackgroundExecutionManager.RequestAccessAsync();
+
+            // register a new task
+            BackgroundTaskBuilder taskBuilder = new BackgroundTaskBuilder { Name = "Update Timer Task", TaskEntryPoint = "ParkingTimerTask.UpdateTimerTask" };
+            taskBuilder.SetTrigger(new TimeTrigger(30, false));
+            BackgroundTaskRegistration parkingTimerTask = taskBuilder.Register();
+
+            await(new MessageDialog("Task registered")).ShowAsync();
+
+            //Below commented out to allow baclground task to run and upate parking timer
             // TODO: Save application state and stop any background activity
-            deferral.Complete();
+            //deferral.Complete();
         }
     }
 }
