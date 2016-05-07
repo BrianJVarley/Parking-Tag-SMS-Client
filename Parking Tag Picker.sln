@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parking Tag Picker", "Parking Tag Picker WRT\Parking Tag Picker.csproj", "{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingTimerTask", "ParkingTimerTask\ParkingTimerTask.csproj", "{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingDurationTimerTask", "ParkingDurationTimerTask\ParkingDurationTimerTask.csproj", "{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,14 +35,18 @@ Global
 		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|x86.ActiveCfg = Release|x86
 		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|x86.Build.0 = Release|x86
 		{580B5CBC-D1B7-4869-A6E9-16CAFA6270D4}.Release|x86.Deploy.0 = Release|x86
-		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Release|ARM.ActiveCfg = Release|Any CPU
-		{1D1BAF95-7FB9-4C37-A66C-1F785C24934C}.Release|x86.ActiveCfg = Release|Any CPU
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Debug|ARM.ActiveCfg = Debug|ARM
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Debug|ARM.Build.0 = Debug|ARM
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Debug|x86.ActiveCfg = Debug|x86
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Debug|x86.Build.0 = Debug|x86
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Release|ARM.ActiveCfg = Release|ARM
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Release|ARM.Build.0 = Release|ARM
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Release|x86.ActiveCfg = Release|x86
+		{D8AE0BEB-DBBB-4C22-9237-C4D820D23AD3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

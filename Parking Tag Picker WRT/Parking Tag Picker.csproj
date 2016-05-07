@@ -191,9 +191,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ParkingTimerTask\ParkingTimerTask.csproj">
-      <Project>{1d1baf95-7fb9-4c37-a66c-1f785c24934c}</Project>
-      <Name>ParkingTimerTask</Name>
+    <ProjectReference Include="..\ParkingDurationTimerTask\ParkingDurationTimerTask.csproj">
+      <Project>{d8ae0beb-dbbb-4c22-9237-c4d820d23ad3}</Project>
+      <Name>ParkingDurationTimerTask</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

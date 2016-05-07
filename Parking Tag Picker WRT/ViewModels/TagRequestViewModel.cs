@@ -21,9 +21,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
     [DataContract]
     public class TagRequestViewModel : INotifyPropertyChanged
     {
-
-        private Stopwatch StopWatch = new Stopwatch();
-        private string ElapsedTime = string.Empty;
+        private TimeSpan RemainingTimeSpan = TimeSpan.Zero;
         private DatabaseHelper _dbHelper;
         private Dictionary<int, string> TableNameDictionary = new Dictionary<int, string>();
         private Dictionary<int, string> CouncilDisplayNameDictionary = new Dictionary<int, string>();
@@ -275,12 +273,8 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             {
                 //Set timer for current parking tag
                 SetParkingTagTimer();
-
-
                 //Create the live tile
-                CreateLiveTile();
-
-
+                CreateLiveTile(SelectedZone.ZoneName, RemainingTimeSpan);
             }
             if(result.Label == "Cancel")
             {
@@ -293,36 +287,29 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
         private void SetParkingTagTimer()
         {
-
+            Stopwatch stopWatch = new Stopwatch();
             //set timer to current parking tag and start background task
-            StopWatch.Start();
+            stopWatch.Start();
             // Get the elapsed time as a TimeSpan value.
-            var ts = (SelectedParkDuration ?? StopWatch.Elapsed) - StopWatch.Elapsed;
+            RemainingTimeSpan = (SelectedParkDuration ?? stopWatch.Elapsed) - stopWatch.Elapsed;
 
-            // Format and display the TimeSpan value. 
-            ElapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-                ts.Hours, ts.Minutes, ts.Seconds,
-                ts.Milliseconds / 10);
-
-            //Save timespan, currenttime and elapsedtime to local settings 
+            //Save timespan and currenttime to local settings 
             //in order to use in the timer background service
             var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
             localSettings.Values["timerStartTime"] = DateTime.Now.TimeOfDay;
             localSettings.Values["userParkingDuration"] = SelectedParkDuration;
-
-
-            //Code to retrieve local settings key values ->
-            //if (localSettings.Values.ContainsKey("timerStartTime") && localSettings.Values.ContainsKey("userParkingDuration"))
-            //{
-            //    var test = localSettings.Values["timerStartTime"];
-            //}
-
+            localSettings.Values["userParkZone"] = SelectedZone.ZoneName;
 
         }
 
-        private void CreateLiveTile()
+        private void CreateLiveTile(string selectedZoneName, TimeSpan remainingTimeSpan)
         {
+
+            var remainingTimeString = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                remainingTimeSpan.Hours, remainingTimeSpan.Minutes, remainingTimeSpan.Seconds,
+                remainingTimeSpan.Milliseconds / 10);
+
             var tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150PeekImageAndText01);
 
             var tileImage = tileXml.GetElementsByTagName("image")[0] as XmlElement;
@@ -330,9 +317,9 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
             var tileText = tileXml.GetElementsByTagName("text");
             (tileText[0] as XmlElement).InnerText = "Zone:";
-            (tileText[1] as XmlElement).InnerText = " " + SelectedZone.ZoneName;
+            (tileText[1] as XmlElement).InnerText = " " + selectedZoneName;
             (tileText[2] as XmlElement).InnerText = "Time remaining:";
-            (tileText[3] as XmlElement).InnerText = " " + ElapsedTime;
+            (tileText[3] as XmlElement).InnerText = " " + remainingTimeString;
 
             var tileNotification = new TileNotification(tileXml);
             TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);

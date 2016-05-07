@@ -124,7 +124,7 @@ namespace Parking_Tag_Picker_WRT
         /// <param name="e">Details about the suspend request.</param>
         private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
-            //var deferral = e.SuspendingOperation.GetDeferral();
+            var deferral = e.SuspendingOperation.GetDeferral();
 
             //Registration of ParkingTimer background task -->
             string myTaskName = "UpdateTimerTask";
@@ -147,9 +147,8 @@ namespace Parking_Tag_Picker_WRT
 
             await(new MessageDialog("Task registered")).ShowAsync();
 
-            //Below commented out to allow baclground task to run and upate parking timer
             // TODO: Save application state and stop any background activity
-            //deferral.Complete();
+            deferral.Complete();
         }
     }
 }
