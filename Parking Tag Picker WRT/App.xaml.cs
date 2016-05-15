@@ -133,7 +133,7 @@ namespace Parking_Tag_Picker_WRT
             foreach (var cur in BackgroundTaskRegistration.AllTasks)
             if (cur.Value.Name == myTaskName)
             {
-                await(new MessageDialog("Task already registered")).ShowAsync();
+                //await(new MessageDialog("Task already registered")).ShowAsync();
                 return;
             }
 
@@ -145,7 +145,7 @@ namespace Parking_Tag_Picker_WRT
             taskBuilder.SetTrigger(new TimeTrigger(30, false));
             BackgroundTaskRegistration parkingTimerTask = taskBuilder.Register();
 
-            await(new MessageDialog("Task registered")).ShowAsync();
+            //await(new MessageDialog("Task registered")).ShowAsync();
 
             // TODO: Save application state and stop any background activity
             deferral.Complete();

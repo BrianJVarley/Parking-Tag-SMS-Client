@@ -53,7 +53,9 @@ namespace ParkingDurationTimerTask
             var tileText = tileXml.GetElementsByTagName("text");
             (tileText[0] as XmlElement).InnerText = "Zone:";
             (tileText[1] as XmlElement).InnerText = " " + selectedZoneName;
-            (tileText[2] as XmlElement).InnerText = "Time remaining:";
+            //(tileText[2] as XmlElement).InnerText = "Start Time:";
+            //(tileText[3] as XmlElement).InnerText = " " + timerStartTime;
+            (tileText[2] as XmlElement).InnerText = "Remaining Time:";
             (tileText[3] as XmlElement).InnerText = " " + remainingTimeString;
 
             var tileNotification = new TileNotification(tileXml);
