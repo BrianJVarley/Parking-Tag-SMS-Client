@@ -92,6 +92,7 @@
     <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Helpers\MessageDialogHelper.cs" />
     <Compile Include="Helpers\StringFormatConverter.cs" />
+    <Compile Include="Helpers\TimeSpanConverter.cs" />
     <Compile Include="Interfaces\IAsyncInitialization.cs" />
     <Compile Include="Interfaces\INavigationCallback.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -191,9 +192,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ParkingDurationTimerTask\ParkingDurationTimerTask.csproj">
-      <Project>{d8ae0beb-dbbb-4c22-9237-c4d820d23ad3}</Project>
-      <Name>ParkingDurationTimerTask</Name>
+    <ProjectReference Include="..\ParkingTagBackgroundTask\ParkingTagBackgroundTask.csproj">
+      <Project>{4660cb1e-22e3-4161-bf41-07c22ab3bd74}</Project>
+      <Name>ParkingTagBackgroundTask</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

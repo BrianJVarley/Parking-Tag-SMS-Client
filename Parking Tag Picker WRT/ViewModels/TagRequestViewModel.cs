@@ -274,7 +274,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
                 //Set timer for current parking tag
                 SetParkingTagTimer();
                 //Create the live tile
-                var timerStartTime = DateTime.Now.TimeOfDay;
+                var timerStartTime = TimeSpanConverter.GetTimeSpanAsString(DateTime.Now.TimeOfDay);
                 CreateLiveTile(SelectedZone.ZoneName, RemainingTimeSpan, timerStartTime);
             }
             if(result.Label == "Cancel")
@@ -305,7 +305,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
         }
 
-        private void CreateLiveTile(string selectedZoneName, TimeSpan remainingTimeSpan, TimeSpan timerStartTime)
+        private void CreateLiveTile(string selectedZoneName, TimeSpan remainingTimeSpan, string timerStartTime)
         {
 
             var remainingTimeString = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
@@ -320,10 +320,10 @@ namespace Parking_Tag_Picker_WRT.ViewModel
             var tileText = tileXml.GetElementsByTagName("text");
             (tileText[0] as XmlElement).InnerText = "Zone:";
             (tileText[1] as XmlElement).InnerText = " " + selectedZoneName;
-            //(tileText[2] as XmlElement).InnerText = "Start Time:";
-            //(tileText[3] as XmlElement).InnerText = " " + timerStartTime;
-            (tileText[2] as XmlElement).InnerText = "Remaining Time:";
-            (tileText[3] as XmlElement).InnerText = " " + remainingTimeString;
+            (tileText[2] as XmlElement).InnerText = "Start Time:";
+            (tileText[3] as XmlElement).InnerText = " " + timerStartTime;
+            //(tileText[2] as XmlElement).InnerText = "Remaining Time:";
+            //(tileText[3] as XmlElement).InnerText = " " + remainingTimeString;
 
             var tileNotification = new TileNotification(tileXml);
             TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);

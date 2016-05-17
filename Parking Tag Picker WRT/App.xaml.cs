@@ -127,7 +127,7 @@ namespace Parking_Tag_Picker_WRT
             var deferral = e.SuspendingOperation.GetDeferral();
 
             //Registration of ParkingTimer background task -->
-            string myTaskName = "UpdateTimerTask";
+            string myTaskName = "UpdateTile";
 
             // check if task is already registered
             foreach (var cur in BackgroundTaskRegistration.AllTasks)
@@ -141,7 +141,7 @@ namespace Parking_Tag_Picker_WRT
             await BackgroundExecutionManager.RequestAccessAsync();
 
             // register a new task
-            BackgroundTaskBuilder taskBuilder = new BackgroundTaskBuilder { Name = "Update Timer Task", TaskEntryPoint = "ParkingTimerTask.UpdateTimerTask" };
+            BackgroundTaskBuilder taskBuilder = new BackgroundTaskBuilder { Name = "Update Tile", TaskEntryPoint = "ParkingTagBackgroundTask.UpdateTile" };
             taskBuilder.SetTrigger(new TimeTrigger(30, false));
             BackgroundTaskRegistration parkingTimerTask = taskBuilder.Register();
 
