@@ -369,5 +369,21 @@
     <MainPackageIdentityName>47582BrianVarley.LCPoints</MainPackageIdentityName>
     <MainPackageIdentityName>47582BrianVarley.TotalTabata</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9NBLGGH4VGLK" />
+  <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9NBLGGH4VGLK">
+    <PackageInfo>
+      <OsMinVersion>6.3.1.0</OsMinVersion>
+      <PackageArchitecture>Arm</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
+    </PackageInfo>
+    <PackageInfo>
+      <OsMinVersion>6.3.1.0</OsMinVersion>
+      <PackageArchitecture>Neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
+    </PackageInfo>
+    <PackageInfo>
+      <OsMinVersion>6.3.1.0</OsMinVersion>
+      <PackageArchitecture>Neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
+    </PackageInfo>
+  </PackageInfoList>
 </StoreAssociation>

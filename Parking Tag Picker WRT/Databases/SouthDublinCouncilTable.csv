@@ -1,0 +1,11 @@
+DaysOpen,HoursOpen,ObjectId,Restrictions,TariffPD,TariffPH,ZoneName
+Monday - Saturday,08:00 - 18:00,PTP10,No max,0,1.5,SG
+Monday - Friday,08:00 - 18:00,PTP9,No max,0,1.5,SH
+Monday - Saturday,08:00 - 18:00,PTP8,No max,0,1.2,SL
+Monday - Friday,08:00 - 18:00,PTP7,No max,0,1.5,SP
+Monday - Saturday,08:00 - 18:00,PTP6,No max,0,1.5,SR
+Monday - Saturday,08:00 - 18:00,PTP5,No max,0,1.5,ST
+Monday - Saturday,08:00 - 18:00,PTP4,No max,0,0.75,SF
+Monday - Friday,08:00 - 18:00,PTP3,No max,0,0.75,SE
+Monday - Friday,08:00 - 18:00,PTP2,3 hour max,0,0.75,SD
+Monday - Saturday,08:00 - 18:00,PTP1,No max,0,1,SC

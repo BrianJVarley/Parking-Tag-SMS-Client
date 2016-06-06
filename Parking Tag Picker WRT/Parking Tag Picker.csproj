@@ -15,6 +15,9 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <NuGetPackageImportStamp>e803e134</NuGetPackageImportStamp>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -104,8 +107,6 @@
     <Compile Include="RequestTagPage.xaml.cs">
       <DependentUpon>RequestTagPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SQLite.cs" />
-    <Compile Include="SQLiteAsync.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TagRequestViewModel.cs" />
     <Compile Include="ViewModels\ZoneInfoViewModel.cs" />
@@ -137,6 +138,33 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Databases\ArklowCouncilTable.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databases\DLRCouncilTable.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databases\DublinCityCouncilTable.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databases\DunLaoghaireCityCouncilTable.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databases\FingalCouncilTable.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databases\GreystonesCouncilTable.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databases\SouthDublinCouncilTable.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databases\TallaghtCouncilTable.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databases\WicklowCouncilTable.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -145,9 +173,6 @@
     </SDKReference>
     <SDKReference Include="Microsoft.VCLibs, version=12.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Phone</Name>
-    </SDKReference>
-    <SDKReference Include="SQLite.WP81, Version=3.11.0">
-      <Name>SQLite for Windows Phone 8.1</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
@@ -172,12 +197,12 @@
     <Content Include="Assets\WideLogo.scale-100.png" />
     <Content Include="Assets\WideLogo.scale-140.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
-    <Content Include="Databases\ParkingZoneDatabase.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="CsvHelper">
+      <HintPath>..\packages\CsvHelper.2.14.2\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+Xamarin.iOS10+MonoTouch10\CsvHelper.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight">
       <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\wpa81\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>

@@ -1,5 +1,5 @@
-﻿using Parking_Tag_Picker_WRT.Models;
-using SQLite;
+﻿using CsvHelper;
+using Parking_Tag_Picker_WRT.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,27 +24,27 @@ namespace Parking_Tag_Picker_WRT.Helpers
         /// </summary>
         /// <param name="DBPATH"></param>
         /// <returns></returns>
-        public async Task<bool> Init()
+        public async Task<bool> Init(string tableName)
         {
-
-
-            bool isDatabaseExisting = false;
+           
+            bool isTableExisting = false;
 
             try
             {
-                StorageFile storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync(AppDBPath);
-                isDatabaseExisting = true;
+                StorageFile localFile = await ApplicationData.Current.LocalFolder.GetFileAsync(string.Format("{0}.csv", tableName));
+                isTableExisting = true;
             }
             catch
             {
-                isDatabaseExisting = false;
+                isTableExisting = false;
             }
 
-            if (!isDatabaseExisting)
+            if (!isTableExisting)
             {
 
-                StorageFile databaseFile = await Package.Current.InstalledLocation.GetFileAsync(PackageDBPath);
-                await databaseFile.CopyAsync(ApplicationData.Current.LocalFolder);
+                StorageFile packagefile = await StorageFile.GetFileFromApplicationUriAsync(new Uri(string.Format(@"ms-appx:///Databases/{0}.csv", tableName)));
+                await packagefile.CopyAsync(ApplicationData.Current.LocalFolder);
+               
             }
 
             return true;          
@@ -52,33 +52,41 @@ namespace Parking_Tag_Picker_WRT.Helpers
 
         
 
-        /// <summary>
-        ///  Retrieve the specific zone info from the database.   
-        /// </summary>
-        /// <param name="zoneId"></param>
-        /// <returns></returns>
-        public ZoneInfo ReadZone(int zoneId, string tableName)
-        {
-            using (var dbConn = new SQLiteConnection(tableName))
-            {
-                var existingZone = dbConn.Query<ZoneInfo>("select * from {0} where ObjectId ={1}", tableName, zoneId).FirstOrDefault();
-                return existingZone;
-            }
-        }
-
 
         /// <summary>
         ///  Retrieve zone info list from the database.   
         /// </summary>
         /// <returns></returns>
-        public ObservableCollection<ZoneInfo> ReadZones(string tableName)
+        public async Task<ObservableCollection<ZoneInfo>> ReadZones(string tableName)
         {
-            using (var dbConn = new SQLiteConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, AppDBPath), true))
+            ObservableCollection<ZoneInfo> zoneInfoCollection = new ObservableCollection<ZoneInfo>();
+
+            try 
             {
-                List<ZoneInfo> zoneInfo = dbConn.Query<ZoneInfo>("select * from " + tableName).ToList<ZoneInfo>();
-                ObservableCollection<ZoneInfo> zoneInfoCollection = new ObservableCollection<ZoneInfo>(zoneInfo);
+                string fileName = string.Format("{0}.csv", tableName);
+
+                StorageFile localFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri(string.Format(@"ms-appx:///Databases/{0}.csv", tableName)));
+                Stream fileStream = await localFile.OpenStreamForReadAsync();
+
+                using (var textReader = new StreamReader(fileStream))
+                {
+
+                    var csvReader = new CsvReader(textReader);
+                    //csvReader.Read();
+                    List<ZoneInfo> zoneInfo = csvReader.GetRecords<ZoneInfo>().ToList();
+                    zoneInfoCollection = new ObservableCollection<ZoneInfo>(zoneInfo);
+
+                    return zoneInfoCollection;
+
+                }
+            
+            }
+            catch(Exception ex)
+            {
                 return zoneInfoCollection;
             }
+
+
         }
     
         

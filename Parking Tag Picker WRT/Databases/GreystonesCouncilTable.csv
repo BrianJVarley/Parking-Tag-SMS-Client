@@ -1,0 +1,7 @@
+DaysOpen,HoursOpen,ObjectId,Restrictions,TariffPD,TariffPH,ZoneName
+Monday - Saturday,09:00 - 18:00,PTP6,24 hour max,3,1,GSPU
+Monday - Saturday,09:00 - 18:00,PTP5,4 hour max,0,1,GSPK
+Monday - Friday,12:00 - 18:00,PTP4,2 hour max,0,1,GSBR
+Monday - Saturday,12:00 - 18:00,PTP3,24 hour max,3,1,GSBL
+Monday - Saturday,12:00 - 18:00,PTP2,4 hour max,0,1,GSGR
+Monday - Friday,09:00 - 18:00,PTP1,2 hour max,0,1,GSRE

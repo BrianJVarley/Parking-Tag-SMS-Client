@@ -1,0 +1,18 @@
+DaysOpen,HoursOpen,ObjectId,Restrictions,TariffPD,TariffPH,ZoneName
+Monday - Saturday,08:00 - 19:00,PTP18,n/a,3.6,1.2,DZ
+Monday - Saturday,08:00 - 19:00,PTP17,n/a,3,1.2,DY
+Monday - Saturday,08:00 - 20:00,PTP15,n/a,0,1.2,DS
+Monday - Saturday,08:00 - 19:00,PTP14,n/a,10,1.5,DR
+Monday - Saturday,08:00 - 19:00,PTP13,n/a,4,1,DQ
+Monday - Saturday,08:00 - 19:00,PTP12,n/a,0,1,DP
+Monday - Saturday,08:00 - 19:00,PTP11,n/a,3,1,DM
+Monday - Saturday,08:00 - 19:00,PTP10,n/a,5,1,DL
+Monday - Saturday,08:00 - 19:00,PTP9,n/a,0,1.5,DK
+Monday - Saturday,08:00 - 19:00,PTP8,n/a,5,1.5,DI
+Monday - Saturday,08:00 - 19:00,PTP7,n/a,0,1.5,DH
+Monday - Saturday,08:00 - 19:00,PTP6,n/a,10,1.5,DF
+Monday - Saturday,08:00 - 19:00,PTP5,n/a,0,1.2,DE
+Monday - Saturday,08:00 - 19:00,PTP4,n/a,2.5,1.2,DD
+Monday - Saturday,08:00 - 19:00,PTP3,n/a,3.6,1.2,DC
+Monday - Saturday,08:00 - 19:00,PTP2,n/a,6,1.5,DB
+Monday - Saturday,08:00 - 19:00,PTP1,n/a,6,1.2,DA

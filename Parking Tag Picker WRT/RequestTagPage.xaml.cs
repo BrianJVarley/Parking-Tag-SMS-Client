@@ -138,11 +138,11 @@ namespace Parking_Tag_Picker_WRT
         /// </summary>
         /// <param name="e">Provides data for navigation methods and event
         /// handlers that cannot cancel the navigation request.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        async protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
             ((TagRequestViewModel)this.DataContext).SelectedCouncilId = (string)e.Parameter;
-            _vm.InitZoneInfoAsync();
+            await _vm.InitZoneInfoAsync();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

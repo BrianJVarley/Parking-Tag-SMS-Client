@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="47582BrianVarley.ParkingTagPicker" Publisher="CN=9A4AAF2D-CB7C-4F22-9A0B-6F983D906BAA" Version="1.1.0.0" />
+  <Identity Name="47582BrianVarley.ParkingTagPicker" Publisher="CN=9A4AAF2D-CB7C-4F22-9A0B-6F983D906BAA" Version="1.1.0.3" />
   <mp:PhoneIdentity PhoneProductId="7e74435c-68d5-4f98-a202-44e93c095972" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Parking Tag Picker</DisplayName>

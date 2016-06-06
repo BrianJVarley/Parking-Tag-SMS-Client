@@ -1,0 +1,6 @@
+DaysOpen,HoursOpen,ObjectId,Restrictions,TariffPD,TariffPH,ZoneName
+Monday - Sunday,09:00 - 20:00,PTP5,n/a,8,2,HM
+Monday - Sunday,09:00 - 20:00,PTP4,n/a,5,2,HC
+Monday - Sunday,09:00 - 20:00,PTP3,n/a,8,2,HU
+Monday - Sunday,09:00 - 20:00,PTP2,n/a,4,2,HW
+Monday - Sunday,09:00 - 20:00,PTP1,n/a,0,2,HB

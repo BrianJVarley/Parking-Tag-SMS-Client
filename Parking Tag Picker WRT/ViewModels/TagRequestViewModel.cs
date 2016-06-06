@@ -235,7 +235,7 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
 
 
-        public void InitZoneInfoAsync()
+        public async Task InitZoneInfoAsync()
         {
             string tableName;
             CouncilId = Int32.Parse(SelectedCouncilId);
@@ -243,10 +243,11 @@ namespace Parking_Tag_Picker_WRT.ViewModel
 
             CouncilHeaderDisplayName = CouncilDisplayNameDictionary[CouncilId];
 
-            var result = _dbHelper.Init();
+            //Init the table data
+            var result = await _dbHelper.Init(tableName);
 
-            ////Return zone database records
-            var zoneResult = _dbHelper.ReadZones(tableName);
+            //Return zone table
+            var zoneResult = await _dbHelper.ReadZones(tableName);
             ZoneInfoCollection = zoneResult;
         }
 

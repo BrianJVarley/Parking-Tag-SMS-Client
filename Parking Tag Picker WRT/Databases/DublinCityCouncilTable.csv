@@ -1,0 +1,6 @@
+DaysOpen,HoursOpen,ObjectId,Restrictions,TariffPD,TariffPH,ZoneName
+Monday - Sunday,Check Local Signage,PTP2,3 Hour Max,0,0.6,Blue
+Monday - Sunday,Check Local Signage,PTP3,3 Hour Max,0,2.4,Red
+Monday - Sunday,Check Local Signage,PTP4,3 Hour Max,0,1.6,Green
+Monday - Sunday,Check Local Signage,PTP5,3 Hour Max,0,2.9,Yellow
+Monday - Sunday,Check Local Signage,PTP1,3 Hour Max,0,1,Orange

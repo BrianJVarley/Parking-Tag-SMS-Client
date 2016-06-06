@@ -1,0 +1,8 @@
+DaysOpen,HoursOpen,ObjectId,Restrictions,TariffPD,TariffPH,ZoneName
+Monday - Saturday,08:00 - 18:00,PTP7,No max,0,1,FG
+Monday - Saturday,08:00 - 18:00,PTP6,3 hour max,0,1,FF
+Monday - Saturday,08:00 - 18:00,PTP5,€3.00 p/day,0,0.5,FE
+Monday - Friday,08:00 - 18:00,PTP4,€2.00 p/day,0,0,FD
+Monday - Friday,08:00 - 18:00,PTP3,No max,0,1,FC
+Monday - Friday,08:00 - 18:00,PTP2,24hr max,0,2,FB
+Monday - Saturday,08:00 - 18:00,PTP1,3 Hour max,0,1,FA

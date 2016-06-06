@@ -1,0 +1,2 @@
+DaysOpen,HoursOpen,ObjectId,Restrictions,TariffPD,TariffPH,ZoneName
+Monday - Friday,07:00 - 23:00,PTP1,24 hour max,3.2,3.2,TS

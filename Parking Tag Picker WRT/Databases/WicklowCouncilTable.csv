@@ -1,0 +1,9 @@
+DaysOpen,HoursOpen,ObjectId,Restrictions,TariffPD,TariffPH,ZoneName
+Monday - Saturday,10:00 - 17:30,PTP8,24 hour max,2.5,1.2,WH
+Monday - Saturday,10:00 - 17:30,PTP7,24 hour max,1.2,1.2,WG
+Monday - Saturday,10:00 - 17:30,PTP6,9 hour max,0,1.2,WF
+Monday - Saturday,09:00 - 18:00,PTP5,9 hour max,0,1.2,WE
+Monday - Saturday,09:00 - 18:00,PTP4,4 hour max,0,1.2,WD
+Monday - Saturday,10:00 - 17:30,PTP3,3 hour max,0,1.2,WC
+Monday - Saturday,09:00 - 18:00,PTP2,2 hour max,0,1.2,WB
+Monday - Saturday,10:00 - 17:30,PTP1,2 hour max,0,1.2,WA
